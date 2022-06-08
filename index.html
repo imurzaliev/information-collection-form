@@ -4,9 +4,98 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./form.png" />
     <title>Information Form</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="./index.js" defer></script>
+
+    <script
+      src="https://kit.fontawesome.com/cc712560f3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Montserrat:wght@100;300;700;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <form class="form flex">
+        <h1 class="uppercase fs-600">Give Up Your Information</h1>
+        <!-- mail -->
+        <div class="input-container">
+          <label for="mail"></label>
+          <i class="fa-solid fa-envelope icon"></i>
+          <input type="text" id="mail" name="mail" placeholder="E-mail" />
+          <small class="error" arial-live="polite"></small>
+        </div>
+        <!-- country -->
+        <div class="input-container">
+          <label for="country"></label>
+          <i class="fa-solid fa-earth-europe icon"></i>
+          <input
+            type="country"
+            id="country"
+            name="country"
+            placeholder="Country"
+          />
+          <!-- <i class="fa-solid fa-check icon "></i> -->
+          <!-- <i class="fa-solid fa-exclamation icon hidden"></i> -->
+          <small class="error" arial-live="polite"></small>
+        </div>
+        <!-- zip -->
+        <div class="input-container">
+          <label for="zip"> </label>
+          <i class="fa-solid fa-address-card icon"></i>
+          <input type="text" id="zip" name="zip" placeholder="Zip Code" />
+          <small class="error" arial-live="polite"></small>
+        </div>
+
+        <!-- password -->
+        <div class="input-container">
+          <label class="password" for="password"></label>
+          <i class="fa-solid fa-key icon"></i>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+          <div class="icon-container hidden">
+            <i class="fa-solid fa-eye icon"></i>
+            <i class="fa-solid fa-eye-slash icon"></i>
+            <i class="fa-solid fa-check icon"></i>
+            <i class="fa-solid fa-exclamation icon"></i>
+          </div>
+          <small class="error" arial-live="polite"></small>
+        </div>
+
+        <!-- confirm password -->
+        <div class="input-container">
+          <label for="password-confirm"></label>
+          <i class="fa-solid fa-key icon"></i>
+          <input
+            type="password"
+            id="confirm"
+            name="confirm"
+            placeholder="Confirm Password"
+          />
+          <div class="icon-container hidden">
+            <i class="fa-solid fa-check icon"></i>
+            <i class="fa-solid fa-exclamation icon"></i>
+          </div>
+          <span class="error" arial-live="polite"></span>
+        </div>
+
+        <button
+          type="submit"
+          class="bg-accent text-dark ff-sans-alt send-button"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </body>
 </html>
