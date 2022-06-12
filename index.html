@@ -22,13 +22,19 @@
   </head>
   <body>
     <div class="container">
-      <form class="form flex">
+      <form class="form flex" data-form>
         <h1 class="uppercase fs-600">Give Up Your Information</h1>
         <!-- mail -->
         <div class="input-container">
           <label for="mail"></label>
           <i class="fa-solid fa-envelope icon"></i>
-          <input type="text" id="mail" name="mail" placeholder="E-mail" />
+          <input
+            type="text"
+            id="mail"
+            name="mail"
+            placeholder="E-mail"
+            data-email
+          />
           <small class="error" arial-live="polite"></small>
         </div>
         <!-- country -->
