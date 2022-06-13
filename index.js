@@ -1,11 +1,28 @@
 const form = document.querySelector('[data-form]');
 
 const email = document.querySelector('[data-email]');
-const emailError = document.querySelector('#mail + small');
+const country = document.querySelector('[data-country]');
+const zip = document.querySelector('[data-zip]');
+const password = document.querySelector('[data-password]');
+const passwordVerifivation = document.querySelector(
+  '[data-password-verification]'
+);
 
-const isEmpty = (elem) => {
-  return elem.value.length === 0;
+const showHide = document.querySelector('[data-show-hide]');
+
+const showHidePassword = () => {
+  if (password.type === 'password') {
+    password.type = 'text';
+    showHide.className = 'fa-solid fa-eye-slash icon click';
+  } else {
+    password.type = 'password';
+    showHide.className = 'fa-solid fa-eye icon click';
+  }
 };
+
+showHide.addEventListener('click', (e) => {
+  showHidePassword();
+});
 
 const showError = (input, message) => {
   const inputContainer = input.parentElement;
@@ -31,11 +48,48 @@ const checkEmail = (input) => {
   }
 };
 
-// Get field name and capitalize only the first letter
-function getFieldName(input) {
-  return input.placeholder.charAt(0).toUpperCase() + input.placeholder.slice(1);
-}
+const checkRequired = (inputArr) => {
+  inputArr.forEach((input) => {
+    if (input.value.trim() === '') {
+      showError(input, `${getFieldName(input)} is required`);
+    } else {
+      showSuccess(input);
+    }
+  });
+};
 
-email.addEventListener('input', (e) => {
+const checkLength = (input, min, max) => {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${getFieldName(input)} must be at least ${min} characters!`
+    );
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${getFieldName(input)} must be less than ${max} characters!`
+    );
+  } else {
+    showSuccess(input);
+  }
+};
+
+const checkPasswordsMatch = (input1, input2) => {
+  if (input1.value !== input2.value) {
+    showError(input2, 'Passwords do not match');
+  }
+};
+
+// Get field name and capitalize only the first letter
+const getFieldName = (input) => {
+  return input.placeholder.charAt(0).toUpperCase() + input.placeholder.slice(1);
+};
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  checkRequired([email, country, zip, password, passwordVerifivation]);
+  checkLength(password, 6, 25);
   checkEmail(email);
+  checkPasswordsMatch(password, passwordVerifivation);
 });

@@ -46,6 +46,7 @@
             id="country"
             name="country"
             placeholder="Country"
+            data-country
           />
           <!-- <i class="fa-solid fa-check icon "></i> -->
           <!-- <i class="fa-solid fa-exclamation icon hidden"></i> -->
@@ -55,7 +56,13 @@
         <div class="input-container">
           <label for="zip"> </label>
           <i class="fa-solid fa-address-card icon"></i>
-          <input type="text" id="zip" name="zip" placeholder="Zip Code" />
+          <input
+            type="text"
+            id="zip"
+            name="zip"
+            placeholder="Zip Code"
+            data-zip
+          />
           <small class="error" arial-live="polite"></small>
         </div>
 
@@ -68,12 +75,10 @@
             id="password"
             name="password"
             placeholder="Password"
-          />
+            data-password
+          /><i class="fa-solid fa-eye icon click" data-show-hide></i>
           <div class="icon-container hidden">
-            <i class="fa-solid fa-eye icon"></i>
-            <i class="fa-solid fa-eye-slash icon"></i>
-            <i class="fa-solid fa-check icon"></i>
-            <i class="fa-solid fa-exclamation icon"></i>
+            <i class="fa-solid fa-eye-slash icon click"></i>
           </div>
           <small class="error" arial-live="polite"></small>
         </div>
@@ -87,12 +92,13 @@
             id="confirm"
             name="confirm"
             placeholder="Confirm Password"
+            data-password-verification
           />
           <div class="icon-container hidden">
             <i class="fa-solid fa-check icon"></i>
             <i class="fa-solid fa-exclamation icon"></i>
           </div>
-          <span class="error" arial-live="polite"></span>
+          <small class="error" arial-live="polite"></small>
         </div>
 
         <button
